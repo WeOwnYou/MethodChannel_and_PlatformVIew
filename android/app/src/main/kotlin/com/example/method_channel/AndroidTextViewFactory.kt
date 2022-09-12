@@ -4,11 +4,9 @@ import android.content.Context
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.platform.PlatformViewFactory
-import io.flutter.plugin.common.StandardMessageCodec
+import pigeon.Pigeon
 
-import android.webkit.*
-
-class AndroidTextViewFactory (messenger: BinaryMessenger) : PlatformViewFactory(StandardMessageCodec.INSTANCE){
+class AndroidTextViewFactory (messenger: BinaryMessenger) : PlatformViewFactory(Pigeon.DataApi.getCodec()){
     private val binaryMessenger: BinaryMessenger = messenger
     private lateinit var myTextView: MyTextView
 
@@ -18,7 +16,7 @@ class AndroidTextViewFactory (messenger: BinaryMessenger) : PlatformViewFactory(
         return myTextView
     }
 
-    fun setText(newText: String){
-        myTextView.setText(newText);
+    fun setText(data: Pigeon.Data){
+        myTextView.setText(data)
     }
 }

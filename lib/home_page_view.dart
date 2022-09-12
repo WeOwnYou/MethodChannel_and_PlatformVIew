@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:method_channel/home_page_vm.dart';
+import 'package:method_channel/pigeon.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -27,8 +28,9 @@ class MyHomePage extends StatelessWidget {
           height: 200,
           child: AndroidView(
             viewType: 'INTEGRATION_ANDROID',
-            creationParams: {'initial_text': text},
-            creationParamsCodec: const StandardMessageCodec(),
+            // creationParams: {'initial_text': text},
+            creationParams: Data(someText: 'text'),
+            creationParamsCodec: DataApi.codec,
           ),
         ),
       ]),

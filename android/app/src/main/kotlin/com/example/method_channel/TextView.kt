@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.TextView
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.platform.PlatformView
-import android.webkit.*
+import pigeon.Pigeon
 
 internal class MyTextView (context: Context, id: Int, creationParams: Map<String?, Any?>?, messenger: BinaryMessenger ) : PlatformView{
     private val textView: TextView = TextView(context)
@@ -17,8 +17,8 @@ internal class MyTextView (context: Context, id: Int, creationParams: Map<String
         textView.text = creationParams!!["initial_text"] as String?
     }
 
-    fun setText(newText: String){
-        textView.text = newText;
+    fun setText(data: Pigeon.Data){
+        textView.text = data.someText
     }
 
     override fun dispose() {}

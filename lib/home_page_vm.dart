@@ -9,7 +9,7 @@ class HomePageVm extends ChangeNotifier {
   HomePageVm()
       : service = PlatformService(),
         textEditingController = TextEditingController(),
-        textExample = 'text';
+        textExample = '1!';
 
   Future<void> setText() async{
     textExample = await service.callMethodChannel(textEditingController.text);

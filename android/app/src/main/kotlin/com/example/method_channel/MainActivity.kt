@@ -4,6 +4,7 @@ import io.flutter.embedding.android.FlutterActivity
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
+import pigeon.Pigeon
 
 class MainActivity: FlutterActivity() {
     private val methodChannelId = "CALL_METHOD"
@@ -21,8 +22,8 @@ class MainActivity: FlutterActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, methodChannelId).setMethodCallHandler {
             call, result ->
             if (call.method == methodId){
-                androidTextViewFactory.setText(call.arguments as String)
-                result.success(call.arguments)
+                androidTextViewFactory.setText(call.arguments as Pigeon.Data)
+//                result.success(call.arguments)
             }
         }
     }
